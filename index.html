@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07152d">
+<title>Pedagogía | Aprende, comprende y transforma</title>
+<style>
+:root{--bg:#07152d;--panel:#0e2142;--panel2:#10294f;--cyan:#48e0e8;--violet:#a78bfa;--white:#eef5ff;--muted:#a9bbd5;--green:#65e6b3;--line:rgba(151,190,236,.18)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 80% 0%,#163768 0,transparent 34%),linear-gradient(160deg,#061126,#091a36 55%,#07152d);color:var(--white);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55}
+.wrap{width:min(1120px,92%);margin:auto}.top{padding:18px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:12px}.brand{font-weight:800;letter-spacing:.12em;font-size:.85rem}.brand span{color:var(--cyan)}.tag{font-size:.75rem;color:var(--cyan);border:1px solid #48e0e855;padding:6px 11px;border-radius:99px}
+.hero{padding:68px 0 46px;display:grid;grid-template-columns:1.2fr .8fr;gap:35px;align-items:center}.eyebrow{color:var(--cyan);font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;font-weight:800}.hero h1{font-size:clamp(2.5rem,6vw,5rem);line-height:1.02;margin:14px 0 18px;letter-spacing:-.055em}.hero h1 span{background:linear-gradient(90deg,var(--cyan),var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{color:var(--muted);max-width:650px;font-size:1.08rem}.orb{min-height:250px;border:1px solid var(--line);border-radius:28px;background:linear-gradient(145deg,#132f59aa,#101d3baa);display:grid;place-items:center;position:relative;overflow:hidden}.orb:before,.orb:after{content:"";position:absolute;border:1px solid #48e0e855;border-radius:50%;width:220px;height:220px}.orb:after{width:165px;height:165px;border-color:#a78bfa88}.orb .symbol{font-size:5rem;z-index:1;filter:drop-shadow(0 0 25px #48e0e899)}.orb small{position:absolute;bottom:20px;color:var(--muted);letter-spacing:.16em;font-size:.68rem}
+nav{display:flex;gap:10px;flex-wrap:wrap;padding:0 0 28px}nav a,.btn{color:var(--white);text-decoration:none;border:1px solid var(--line);padding:10px 15px;border-radius:12px;background:#102344;display:inline-flex;align-items:center;gap:8px;font-weight:650;font-size:.9rem}nav a:hover,.btn:hover{border-color:var(--cyan);transform:translateY(-1px)}
+section{padding:34px 0 45px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:20px}.kicker{color:var(--cyan);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:800}.section-head h2{font-size:clamp(1.8rem,4vw,2.7rem);margin:5px 0 0;letter-spacing:-.035em}.sub{color:var(--muted);max-width:620px;margin:8px 0 0}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}.card{background:linear-gradient(145deg,#11294b,#0c1d39);border:1px solid var(--line);border-radius:19px;padding:21px;box-shadow:0 14px 35px #0002}.card h3{margin:8px 0;font-size:1.12rem}.card p{color:var(--muted);margin:0;font-size:.94rem}.wide{grid-column:span 6}.third{grid-column:span 4}.full{grid-column:1/-1}.num{color:var(--cyan);font-size:.76rem;font-weight:800;letter-spacing:.12em}.icon{font-size:1.65rem}.pill{display:inline-block;margin:5px 5px 0 0;border:1px solid var(--line);border-radius:99px;padding:5px 10px;color:#c8d7ee;font-size:.78rem}
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.time{border-left:2px solid var(--cyan);padding:5px 12px}.time b{color:var(--cyan);font-size:.85rem}.time p{color:var(--muted);font-size:.88rem;margin:5px 0}
+.quote{font-size:1.15rem;color:#e7f6ff;border-left:3px solid var(--violet);padding:8px 0 8px 18px;margin:0}
+.game{background:linear-gradient(145deg,#10294c,#0a1b36);border:1px solid #48e0e855;border-radius:24px;padding:clamp(16px,3vw,28px);box-shadow:0 20px 60px #0003}.game-top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}.stats{display:flex;gap:9px;flex-wrap:wrap}.stat{background:#07172f;border:1px solid var(--line);border-radius:12px;padding:8px 12px;font-size:.85rem}.stat strong{color:var(--cyan);font-size:1.05rem;margin-left:5px}.game-layout{display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:22px;margin-top:20px}.board-wrap{overflow-x:auto;padding-bottom:5px}.board{display:grid;grid-template-columns:repeat(13,minmax(27px,1fr));gap:4px;max-width:590px;margin:auto;touch-action:pan-y;user-select:none}.cell{aspect-ratio:1;border:1px solid #7fa5d52b;background:#0a1a34;color:#dceaff;border-radius:6px;font-weight:750;font-size:clamp(.68rem,2vw,.94rem);cursor:pointer;display:grid;place-items:center;padding:0;min-width:0}.cell.selected{background:#4a54a8;border-color:#b7b1ff;color:white}.cell.found{background:#126b61;border-color:#65e6b3;color:#eafff7}.cell:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}.wordlist{display:flex;flex-direction:column;gap:8px}.word{padding:9px 11px;background:#07172f;border:1px solid var(--line);border-radius:10px;color:#d9e6f8;font-size:.86rem}.word.done{text-decoration:line-through;color:var(--green);border-color:#65e6b355}.word.done:before{content:"✓ ";font-weight:900}.hint{font-size:.82rem;color:var(--muted);margin:12px 0}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}.btn.primary{background:linear-gradient(90deg,#087f91,#5146a5);border:0}.btn:disabled{opacity:.5;cursor:not-allowed}.message{min-height:28px;color:var(--green);font-weight:700;margin-top:12px}.progress{height:8px;background:#07172f;border-radius:99px;overflow:hidden;margin-top:12px}.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--violet));transition:width .25s}
+.qrbox{display:flex;align-items:center;gap:20px;flex-wrap:wrap}.qrbox img{width:160px;height:160px;background:white;border-radius:12px;padding:8px}.qr-note{color:var(--muted);max-width:650px;font-size:.92rem}.url{word-break:break-all;color:var(--cyan);font-size:.85rem}
+footer{border-top:1px solid var(--line);padding:25px 0 38px;color:var(--muted);font-size:.82rem;text-align:center}
+@media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:45px}.orb{min-height:180px}.wide,.third{grid-column:1/-1}.timeline{grid-template-columns:1fr 1fr}.game-layout{grid-template-columns:1fr}.wordlist{display:grid;grid-template-columns:1fr 1fr}.section-head{display:block}.qrbox{align-items:flex-start}}
+@media(max-width:420px){.timeline{grid-template-columns:1fr}.board{gap:2px}.cell{border-radius:4px}.wordlist{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header class="wrap top"><div class="brand">AULA<span>·</span>INTERACTIVA</div><div class="tag">RECURSO UNIVERSITARIO</div></header>
+<main class="wrap">
+<div class="hero">
+ <div><div class="eyebrow">Conocimiento · Educación · Transformación</div><h1>La <span>Pedagogía</span></h1><p>Una mirada a la ciencia que estudia la educación, sus procesos, métodos y posibilidades para transformar a las personas y a la sociedad.</p></div>
+ <div class="orb"><div class="symbol">✳</div><small>APRENDER · ENSEÑAR · TRANSFORMAR</small></div>
+</div>
+<nav><a href="#infografia">▦ Infografía</a><a href="#historia">◷ Historia</a><a href="#juego">⌗ Sopa de letras</a><a href="#qr">▣ Código QR</a></nav>
+
+<section id="infografia">
+ <div class="section-head"><div><div class="kicker">01 / Conceptos fundamentales</div><h2>¿Qué es la pedagogía?</h2><p class="sub">Es un campo de conocimiento que estudia la educación de manera sistemática y reflexiva. Analiza cómo se enseña, cómo se aprende y bajo qué condiciones ocurre la formación humana.</p></div></div>
+ <div class="grid">
+  <article class="card wide"><div class="icon">⌘</div><div class="num">DEFINICIÓN</div><h3>Una ciencia de la educación</h3><p>Integra teorías, investigación y práctica para comprender los fenómenos educativos y orientar procesos de enseñanza y aprendizaje.</p></article>
+  <article class="card wide"><div class="icon">◎</div><div class="num">PROPÓSITO</div><h3>Formación integral</h3><p>Favorece el desarrollo intelectual, social, emocional y ético, reconociendo a cada estudiante como participante activo de su aprendizaje.</p></article>
+  <article class="card third"><div class="icon">▤</div><h3>Didáctica</h3><p>Estudia los métodos, estrategias y recursos para facilitar la enseñanza y el aprendizaje.</p></article>
+  <article class="card third"><div class="icon">◉</div><h3>Currículo</h3><p>Organiza objetivos, contenidos, experiencias y evaluación de un proyecto educativo.</p></article>
+  <article class="card third"><div class="icon">⌂</div><h3>Gestión educativa</h3><p>Analiza la organización y mejora de instituciones, ambientes y comunidades educativas.</p></article>
+  <article class="card full"><div class="num">OBJETIVOS PRINCIPALES</div><h3>¿Qué busca la pedagogía?</h3><div><span class="pill">Comprender la educación</span><span class="pill">Diseñar experiencias de aprendizaje</span><span class="pill">Promover pensamiento crítico</span><span class="pill">Atender la diversidad</span><span class="pill">Evaluar y mejorar la práctica</span><span class="pill">Impulsar la equidad</span></div></article>
+  <article class="card wide"><div class="icon">↗</div><h3>Importancia social</h3><p>Contribuye a formar ciudadanos capaces de participar en su comunidad, analizar su realidad y construir soluciones colectivas.</p></article>
+  <article class="card wide"><div class="icon">✧</div><h3>Rol del pedagogo</h3><p>Investiga, planea, acompaña, evalúa y propone mejoras en espacios escolares, comunitarios, empresariales y culturales.</p></article>
+ </div>
+</section>
+
+<section id="historia">
+ <div class="section-head"><div><div class="kicker">02 / Evolución del pensamiento educativo</div><h2>Referentes históricos</h2><p class="sub">Algunas ideas y autores que han influido en la reflexión pedagógica.</p></div></div>
+ <div class="timeline">
+  <div class="time"><b>Antigüedad</b><p><strong>Platón</strong><br>Reflexionó sobre la formación, el conocimiento y la educación para la vida en sociedad.</p></div>
+  <div class="time"><b>Siglo XVII</b><p><strong>Juan Amos Comenio</strong><br>Defendió una enseñanza organizada y accesible para todas las personas.</p></div>
+  <div class="time"><b>Siglo XVIII</b><p><strong>Jean-Jacques Rousseau</strong><br>Destacó el desarrollo del niño y la importancia de respetar sus etapas.</p></div>
+  <div class="time"><b>Siglo XX</b><p><strong>Paulo Freire</strong><br>Propuso una educación crítica basada en el diálogo y la conciencia social.</p></div>
+ </div>
+ <div class="card" style="margin-top:15px"><p class="quote">“La educación no cambia el mundo: cambia a las personas que van a cambiar el mundo.”</p><p style="margin-top:10px;color:var(--muted);font-size:.82rem">— Idea asociada al pensamiento de Paulo Freire; formulación difundida de su propuesta educativa.</p></div>
+</section>
+
+<section id="juego">
+ <div class="section-head"><div><div class="kicker">03 / Pon a prueba lo aprendido</div><h2>Sopa de letras interactiva</h2><p class="sub">Toca una letra inicial y después la letra final de cada palabra. Puedes encontrar palabras en horizontal, vertical y diagonal, en ambos sentidos.</p></div></div>
+ <div class="game">
+  <div class="game-top"><div><strong>Reto pedagógico</strong><div style="color:var(--muted);font-size:.82rem">Encuentra los 8 conceptos ocultos</div></div><div class="stats"><div class="stat">Puntos<strong id="score">0</strong></div><div class="stat">Encontradas<strong id="count">0/8</strong></div></div></div>
+  <div class="progress"><span id="bar"></span></div>
+  <div class="game-layout"><div class="board-wrap"><div class="board" id="board" aria-label="Tablero de sopa de letras"></div></div><aside><strong>Palabras por encontrar</strong><div class="wordlist" id="words"></div><p class="hint">Instrucciones: selecciona la primera y la última letra de una palabra. Si es correcta, quedará marcada en verde.</p><div class="actions"><button class="btn" id="clear">↺ Limpiar selección</button><button class="btn primary" id="reset">Reiniciar juego</button></div><div class="message" id="message" aria-live="polite">¡Tú puedes! Comienza buscando PEDAGOGIA.</div></aside></div>
+ </div>
+</section>
+
+<section id="qr">
+ <div class="section-head"><div><div class="kicker">04 / Comparte el aprendizaje</div><h2>Accede desde tu celular</h2><p class="sub">Cuando publiques esta página en internet, aquí aparecerá un código QR que abrirá directamente este recurso.</p></div></div>
+ <div class="card qrbox"><img id="qrimg" alt="Código QR para abrir esta página" hidden><div><strong id="qrtitle">Código QR de esta actividad</strong><p class="qr-note" id="qrnote">El QR se generará automáticamente cuando la página tenga una dirección pública (por ejemplo, al publicarla gratis con GitHub Pages). Mientras abras el archivo desde tu computadora, el QR no puede dirigir a otros celulares.</p><div class="url" id="pageurl"></div></div></div>
+</section>
+</main>
+<footer class="wrap">Recurso didáctico universitario · Pedagogía · Aprende, comprende y transforma.</footer>
+<script>
+const words=["PEDAGOGIA","EDUCACION","MAESTRO","ALUMNO","DIDACTICA","ESCUELA","ENSEÑANZA","APRENDER"];
+const N=13, dirs=[[0,1],[1,0],[1,1],[1,-1],[-1,0],[0,-1],[-1,-1],[-1,1]];
+let grid, placements, selected=null, found=new Set(), score=0;
+const board=document.getElementById('board');
+function build(){
+ grid=Array.from({length:N},()=>Array(N).fill('')); placements={}; found=new Set();score=0;selected=null;
+ for(const word of [...words].sort((a,b)=>b.length-a.length)){
+  let placed=false;
+  for(let tries=0;tries<700&&!placed;tries++){
+   const [dr,dc]=dirs[Math.floor(Math.random()*dirs.length)],r=Math.floor(Math.random()*N),c=Math.floor(Math.random()*N);
+   const er=r+dr*(word.length-1),ec=c+dc*(word.length-1);
+   if(er<0||er>=N||ec<0||ec>=N)continue;
+   let ok=true;for(let k=0;k<word.length;k++){const ch=grid[r+dr*k][c+dc*k];if(ch&&ch!==word[k])ok=false;}
+   if(!ok)continue;
+   const cells=[];for(let k=0;k<word.length;k++){const rr=r+dr*k,cc=c+dc*k;grid[rr][cc]=word[k];cells.push(rr*N+cc);}
+   placements[word]=cells;placed=true;
+  }
+ }
+ const alphabet="ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+ for(let r=0;r<N;r++)for(let c=0;c<N;c++)if(!grid[r][c])grid[r][c]=alphabet[Math.floor(Math.random()*alphabet.length)];
+ render();
+}
+function render(){
+ board.innerHTML='';
+ for(let r=0;r<N;r++)for(let c=0;c<N;c++){
+  const i=r*N+c,b=document.createElement('button');b.className='cell';b.textContent=grid[r][c];b.type='button';b.dataset.i=i;b.setAttribute('aria-label',`Fila ${r+1}, columna ${c+1}, ${grid[r][c]}`);
+  if([...found].some(w=>placements[w].includes(i)))b.classList.add('found');
+  if(selected===i)b.classList.add('selected');
+  b.addEventListener('click',()=>pick(i));board.appendChild(b);
+ }
+ document.getElementById('words').innerHTML=words.map(w=>`<div class="word ${found.has(w)?'done':''}">${w}</div>`).join('');
+ document.getElementById('score').textContent=score;
+ document.getElementById('count').textContent=`${found.size}/${words.length}`;
+ document.getElementById('bar').style.width=`${found.size/words.length*100}%`;
+}
+function pick(i){
+ if(selected===null){selected=i;document.getElementById('message').textContent='Ahora selecciona la última letra de la palabra.';render();return;}
+ const a=selected,b=i;selected=null;
+ const r1=Math.floor(a/N),c1=a%N,r2=Math.floor(b/N),c2=b%N,dr=Math.sign(r2-r1),dc=Math.sign(c2-c1);
+ const straight=(r1===r2||c1===c2||Math.abs(r2-r1)===Math.abs(c2-c1));
+ let sequence=[];
+ if(straight){let rr=r1,cc=c1;while(true){sequence.push(rr*N+cc);if(rr===r2&&cc===c2)break;rr+=dr;cc+=dc;}}
+ const match=words.find(w=>!found.has(w)&&placements[w]&&(same(sequence,placements[w])||same(sequence,placements[w].slice().reverse())));
+ if(match){found.add(match);score+=10+match.length;document.getElementById('message').textContent=`¡Excelente! Encontraste ${match}. +${10+match.length} puntos.`;if(found.size===words.length)document.getElementById('message').textContent=`🎉 ¡Felicidades! Completaste la sopa de letras con ${score} puntos. ¡Tu aprendizaje también se construye jugando!`;}
+ else document.getElementById('message').textContent='Esa selección no forma una palabra pendiente. ¡Inténtalo de nuevo!';
+ render();
+}
+function same(a,b){return a.length===b.length&&a.every((v,i)=>v===b[i]);}
+document.getElementById('clear').addEventListener('click',()=>{selected=null;render();document.getElementById('message').textContent='Selección limpiada. Elige una nueva palabra.';});
+document.getElementById('reset').addEventListener('click',()=>{build();document.getElementById('message').textContent='Juego reiniciado. ¡A encontrar las palabras!';});
+build();
+const url=location.href;document.getElementById('pageurl').textContent=url;
+if(location.protocol==='http:'||location.protocol==='https:'){
+ const img=document.getElementById('qrimg');img.src='https://api.qrserver.com/v1/create-qr-code/?size=240x240&data='+encodeURIComponent(url);img.hidden=false;
+ document.getElementById('qrnote').textContent='Escanea este código con la cámara de tu celular para abrir la infografía y jugar. Comparte la dirección pública de esta página.';
+}else{
+ document.getElementById('qrtitle').textContent='Falta publicar la página';
+}
+</script>
+</body></html>
